@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: frontend-mongo-pacman-whrq
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: frontend-mongo-pacman-whrq
+    app.kubernetes.io/part-of: my-app
+  name: frontend-mongo-pacman-whrq
+  namespace: user1-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: frontend-mongo-pacman-whrq
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: frontend-mongo-pacman-whrq
+    spec:
+      containers:
+      - env:
+        - name: MONGO_SERVICE_HOST
+          value: mongo-mongo-pacman-ywry
+        image: quay.io/jduimovich0/user-workload:NA_QT-frontend-mongo-pacman-whrq
+        imagePullPolicy: Always
+        name: container-image
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
