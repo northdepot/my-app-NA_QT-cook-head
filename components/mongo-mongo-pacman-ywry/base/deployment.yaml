@@ -23,7 +23,7 @@ spec:
         app.kubernetes.io/instance: mongo-mongo-pacman-ywry
     spec:
       containers:
-      - image: quay.io/jduimovich0/user-workload:NA_QT-mongo-mongo-pacman-ywry
+      - image: quay.io/jduimovich0/user-workload@sha256:65ec5f9073fb4e661a0e959ab18c05d2ad8e40c2664e9626583a74630bb40199
         imagePullPolicy: Always
         name: container-image
         ports:
